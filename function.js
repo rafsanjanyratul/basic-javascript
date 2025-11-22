@@ -89,3 +89,63 @@ function isOdd (number){
     return false;
 }
 console.log(isOdd(8));
+
+
+function evenSizedString(str){
+    const size = str.length
+    console.log(str, size);
+    if(size %2 ===0){
+        console.log('even sized string');
+        return true;
+    }
+    else{
+        console.log('odd sized string');
+        return false;
+    }
+}
+const finalEven = evenSizedString('Dhaka');
+console.log(finalEven);
+const finalEven2 = evenSizedString('faka');
+console.log(finalEven2);
+
+function doubleOrTripple(number, doDouble){
+    if(doDouble === true){
+        const result = number * 2;
+        return result;
+    }
+    else{
+        const result = number *3;
+        return result;
+    }
+}
+console.log(doubleOrTripple(5, true));
+console.log(doubleOrTripple(5, false));
+
+function sumOfNumbers(numbers) {
+    let sum = 0;
+    for (number of numbers) {
+        console.log(number);
+        sum = sum+number;
+    }
+    return sum;
+}
+const arrayNumber = [1,2,3,4,5];
+const addNumber = sumOfNumbers(arrayNumber);
+console.log('the sum is', addNumber);
+
+function evenNumbersOnly(numbers){
+    let sum = 0;
+    let even = [];
+    for(number of numbers){
+        if (number % 2 ===0 ){
+            console.log(number);
+            even.push(number);
+            sum = sum + number;
+        }
+    }
+    return [even, sum];
+}
+
+ const myNumber = [ 5,6,7,8,9,10];
+ const evenNumber = evenNumbersOnly(myNumber);
+ console.log('even number', evenNumber);

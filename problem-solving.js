@@ -248,3 +248,146 @@ return min;
 }
 const finalPhone = cheapestPhone(phone);
 console.log('lowest budget phn is',finalPhone)
+
+//total coast of shopping cart
+
+let products = [
+    {name : 'shampoo', price : 300},
+    { name : 'chiruni', price : 100},
+    { name : 'shirt', price : 500},
+    { name : 'pant', price : 1200}
+]
+
+function getTotalShopping(products){
+    let sum = 0;
+    for(const product of products){
+       sum = sum + product.price;
+    }
+    return sum;
+}
+const finalCoastOfShopping = getTotalShopping(products)
+console.log(finalCoastOfShopping)
+
+
+let products1 = [
+    {name : 'shampoo', price : 300, quantity : 5},
+    { name : 'chiruni', price : 100, quantity : 10},
+    { name : 'shirt', price : 500, quantity : 7},
+    { name : 'pant', price : 1200, quantity : 8}
+]
+
+function totalShopping (products1){
+    let sum = 0;
+    for(const product1 of products1){
+        const total = product1.price * product1.quantity;
+        sum = sum + total
+    }
+    return sum;
+}
+const finalShoppingCart = totalShopping(products1)
+console.log(finalShoppingCart);
+
+// discount ticket
+/*
+ * 1-100 ticket kinle ticket price 100 tk kore
+ *  101-200 ticket kinle ticket price 90 tk kore
+ * 200 er besi ticket kinle ticket price 70 tk kore
+ */ 
+
+ function ticketPrice(tickets){
+    if(tickets <= 100){
+        const total = tickets * 100
+        return total;
+    }
+    else if (tickets > 100 && tickets <= 200){
+        const total = tickets * 90;
+        return total;
+    }
+    else{
+        const total = tickets * 70
+        return total;
+    }
+ }
+const ticketAll = ticketPrice(201);
+console.log(ticketAll)
+
+
+/***
+ * multi layer discount
+ * 1-100 quantity 100 tk
+ * 101 - 200 quantity 90 tk
+ * 200 er oporer quantity 70 tk
+ * ekhane kew 150 piss nile 100 piss er jonno 100 taka then 50 piss er jonno 90 tk kore add kore coast. ekivabe 200 er besi nile 200 er pore joto pis besi nibe tar jonno 70 tk per piss add hobe. 
+*/
+
+function multiLayerDiscount(quantity){
+    let firstHundred = 100;
+    let secondHundred = 90;
+    let thirdHundred = 70;
+
+    if(quantity <= 100){
+        const total = quantity * firstHundred;
+        return total;
+    }
+    else if(quantity <= 200){
+        const firstHundredTotal = 100 * firstHundred;
+        const remainingQuantity = quantity - 100;
+        const remainingTotal = remainingQuantity * secondHundred;
+        const total = firstHundredTotal + remainingTotal;
+        return total;
+    }
+    else{
+        const firstHundredTotal = 100 * firstHundred;
+        const secondHundredTotal = 100 * secondHundred;
+        const remainingQuantity = quantity - 200;
+        const remainingTotal = remainingQuantity * thirdHundred;
+        const total = firstHundredTotal + secondHundredTotal + remainingTotal;
+        return total;
+    }
+}
+const finalQuantity = multiLayerDiscount(160)
+console.log(finalQuantity)
+
+// calculator
+
+function add (num1, num2){
+    const addNumber = num1 + num2;
+    return addNumber
+}
+function subs (num1, num2){
+    const subsNumber = num1 - num2;
+    return subsNumber
+}
+function multi (num1, num2){
+    const multiNumber = num1 * num2;
+    return multiNumber
+}
+function div (num1, num2){
+    const divNumber = num1 / num2;
+    return divNumber
+}
+
+function calculator(a, operator, b){
+    if(operator === '+'){
+        const result = add(a,b)
+        return result;
+    }
+    else if(operator === '-'){
+        const result = subs(a,b)
+        return result;
+    }
+    else if(operator === '*'){
+        const result = multi(a,b)
+        return result;
+    }
+    else if(operator === '/'){
+        const result = div(a,b)
+        return result;
+    }
+    else{
+        return "only add subs multi div is allowed"
+    }
+}
+
+const finalCalculator = calculator(4,'*',2)
+console.log(finalCalculator)
